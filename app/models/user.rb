@@ -10,3 +10,4 @@ class User < ApplicationRecord
     # true  && true
     profile.present? && profile.persisted?
   end
+end 
