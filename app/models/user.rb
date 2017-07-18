@@ -3,4 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-end
+
+  has_one :profile
+
+  def has_profile?
+    # true  && true
+    profile.present? && profile.persisted?
+  end
