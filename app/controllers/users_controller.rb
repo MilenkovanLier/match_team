@@ -1,26 +1,40 @@
 class UsersController < ApplicationController
+   before_action :authenticate_user!, except: [:show]
 
+def index
+  @user = current_user.users
+end
 
-  def index
-    if current_user.admin
-      @users = User.all
-    elsif current_user.staff
-      @users = User.all
-    else current_user.student
-      @users = User.all
+def edit; end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: "user updated"
+    else
+      render :edit
     end
   end
 
 
 
+=begin
+  def index
+    if current_user.admin?
+      redirect_to home
 
-
+    else current_user.student
+      redirect_to home
+    end
+  end
+=end
+  #scope :all_admins, -> { where(admin: :true) }
 
   def show
     @users = Users.find(params[:id])
   end
 
 =begin
+
 
   def current_user
     if current_user.admin?
@@ -37,4 +51,20 @@ class UsersController < ApplicationController
     end
   end
 =end
+
+
+
+private
+def set_user
+   @user = user.find(params[:id])
+ end
+
+ def user_params
+   params
+     .require(:user)
+     .permit(
+       :email, :password
+     )
+ end
+
 end
