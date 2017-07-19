@@ -1,14 +1,14 @@
 User.destroy_all
 
-user1 = User.create!(email: "lisanne@gmail.com", password: "1234abcd", staff: true)
+user1 = User.create!(email: "lisanne@gmail.com", password: "1234abcd", admin: true)
 
 user2 = User.create!(email: "milenko@gmail.com", password: "1234abcd", admin: true)
 
-user3 = User.create!(email: "sam@gmail.com", password: "1234abcd", student: true)
+user3 = User.create!(email: "sam@gmail.com", password: "1234abcd", admin: false)
 
-user4 = User.create!(email: "mojgan@gmail.com", password: "1234abcd", student: true)
+user4 = User.create!(email: "mojgan@gmail.com", password: "1234abcd", admin: false)
 
-user5 = User.create!(email: "ben@gmail.com", password: "1234abcd", staff: true)
+user5 = User.create!(email: "ben@gmail.com", password: "1234abcd", admin: false)
 
 
 
