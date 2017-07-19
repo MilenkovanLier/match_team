@@ -1,11 +1,22 @@
 class UsersController < ApplicationController
 
+
   def index
-    @users = User.all
+    if current_user.admin
+      @users = User.all
+    elsif current_user.staff
+      @users = User.all
+    else current_user.student
+      @users = User.all
+    end
   end
 
 
-    def show
+
+
+
+
+  def show
     @users = Users.find(params[:id])
   end
 

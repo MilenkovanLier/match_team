@@ -4,8 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #scope :all_admins, -> { where(admin: :true) }
+
   validates :email, presence: true
 
+def self.student
+  where(student: 'student')
+end
 
   #has_one :profile
 =begin
