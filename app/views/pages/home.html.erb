@@ -1,2 +1,9 @@
-<h1>Admin</h1>
-<p>Check out the teams</p>
+<h1>Admin page</h1>
+<br>
+<br>
+
+<h3>All users</h3>
+
+<% @users.each do |students| %>
+<p><%= students.email %></p>
+<% end %>
