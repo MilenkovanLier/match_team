@@ -7,18 +7,8 @@ class User < ApplicationRecord
   #scope :all_admins, -> { where(admin: :true) }
 
   validates :email, presence: true
-=begin
-def self.student
-  where(student: 'student')
-end
-=end
-  #has_one :profile
-=begin
-  def has_profile?
-    # true  && true
-    profile.present? && profile.persisted?
-  end
-=end
+  validates :admin, presence: true
+  validates :student, presence: true
 
 
 end
