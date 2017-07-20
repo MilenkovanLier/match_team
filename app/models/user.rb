@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #scope :all_admins, -> { where(admin: :true) }
-
   validates :email, presence: true
-  validates :admin, presence: true
-  validates :student, presence: true
 
+  #scope :all_admins, -> { where(admin: :true) }
+  def students
+    @user = user.where(admin: false).ids
+  end
 
 end

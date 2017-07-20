@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  devise_for :users, :admins
+  devise_for :users
 
   resources :users
   resources :students
