@@ -1,13 +1,14 @@
 <div class="panel panel-primary">
 <div class="panel-heading">Admin page</div>
 
-<div class="panel-body">
-<h4>All users</h4>
-<ul class="amenities">
-  <% @users.each do |students| %>
-  <li><%= students.email %></li>
-      <p>admin: <%= students.admin%>
-      <%= button_to "Make Admin", make_admin_path(students.id), method: :put %>
-      <%= button_to "Make Student", make_student_path(students.id), method: :put %></p>
-  <% end %>
+  <h4>All users</h4>
+    <ul class="amenities">
+      <% @users.each do |student| %>
+      <li><%= student.email %></li>
+          <p>admin: <%= student.admin%>
+          <%= button_to "Make Admin", make_admin_path(student.id), method: :put %>
+          <%= button_to "Make Student", make_student_path(student.id), method: :put %></p>
+          <%= student.pairs %>
+      <% end %>
+
 </div>

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def home
     @users = User.all
       if current_user && current_user.admin?
+        # nothing
       else
         redirect_to students_path
       end
